@@ -5,14 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.xmall.model.Order;
+import com.xmall.model.Classify;
 
-@RequestMapping(value = "/orders")
-public class OrderController extends ApplicationController {
-	
+@RequestMapping(value = "/classifies")
+public class ClassifyController extends ApplicationController {
 	@ResponseBody
-	@RequestMapping(value = "/index/{user_id}", method = RequestMethod.GET)
-	public String index(@PathVariable("user_id") int user_id){
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(){
 		//List<Commodity> list = null;//new ArrayList<Commodity>();
 		return "";
 	}
@@ -25,13 +24,13 @@ public class OrderController extends ApplicationController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
-	public String update(@PathVariable("id") int id,Order commodity){
+	public String update(@PathVariable("id") int id,Classify commodity){
 		return "";
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String crate(Order commodity){
+	public String crate(Classify commodity){
 		return "";
 	}
 }
