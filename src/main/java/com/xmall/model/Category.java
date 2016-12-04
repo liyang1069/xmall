@@ -1,9 +1,9 @@
 package com.xmall.model;
 
-public class Classify extends BaseModel {
+public class Category extends BaseModel {
 	private String name;
 	private String description;
-	private int classify_id;
+	private int classifyId;
 	
 	public String getName() {
 		return name;
@@ -17,10 +17,10 @@ public class Classify extends BaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getClassify_id() {
-		return classify_id;
+	public int getClassifyId() {
+		return classifyId;
 	}
-	public void setClassify_id(int classify_id) {
-		this.classify_id = classify_id;
+	public void setClassify_id(int classifyId) {
+		this.classifyId = classifyId;
 	}
 }
