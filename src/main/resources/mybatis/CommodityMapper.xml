@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.xmall.mapper.CommodityMapper">
+
+	<resultMap type="com.xmall.model.Commodity" id="usermap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="description" property="description"/>
+		<result column="classify_id" property="classifyId"/>
+		<result column="size" property="size"/>
+		<result column="price" property="price"/>
+		<result column="weight" property="weight"/>
+	</resultMap>
+	
+	<sql id="commodityColumns">
+		name,description,classify_id,size,price,weight
+	</sql>
+
+	<select id="listAll">
+		select id,<include refid="commodityColums"/> from xmall.commodities
+	</select>
+	
+	<select id="get" parameterType="long" resultType="usermap">
+		select id,<include refid="commodityColums"/> from xmall.commodities where id = #{id}
+	</select>
+	
+	<update id="update" parameterType="Commodity">
+		update xmall.commodities set name = #{name}, description = #{description}, classify_id = #{classifyId}, size = #{size},
+		 price = #{price}, weight = #{weight} where id = #{id}
+	</update>
+	
+	<insert id="insert" parameterType="Commodity">
+		insert into xmall.commodities (name,description,classify_id,size,price,weight)
+		 values (#{name},#{description},#{classify_id},#{size},#{price},#{weight})
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		delete from xmall.commodities where id = #{id}
+	</delete>
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.xmall.mapper.OrderMapper">
+	
+	<resultMap type="com.xmall.model.Order" id="ordermap">
+		<id column="id" property="id"/>
+		<result column="user_id" property="userId"/>
+		<result column="commodity_id" property="commodityId"/>
+		<result column="status" property="status"/>
+	</resultMap>
+	
+	<sql id="orderColumns">
+		user_id,commodity_id,status
+	</sql>
+
+	<select id="listAll" parameterType="long">
+		select id,<include refid="orderColumns"/> from xmall.orders where user_id = #{userId}
+	</select>
+	
+	<select id="get" parameterType="long" resultType="ordermap">
+		select id,<include refid="orderColumns"/> from xmall.orders where id = #{id}
+	</select>
+	
+	<update id="update" parameterType="Order">
+		update xmall.orders set user_id = #{userId}, commodity_id = #{commodityId}, status = #{status} where id = #{id}
+	</update>
+	
+	<insert id="insert" parameterType="Order">
+		insert into xmall.orders (<include refid="orderColumns"/>)
+		 values (#{userId},#{commodityId},#{status})
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		delete from xmall.orders where id = #{id}
+	</delete>
+</mapper>

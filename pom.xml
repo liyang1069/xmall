@@ -157,6 +157,13 @@
       <artifactId>commons-collections</artifactId>
       <version>3.2</version>
     </dependency>
+   <dependency>
+   	<groupId>postgresql</groupId>
+   	<artifactId>postgresql-connect-java</artifactId>
+   	<version>9.4.1212</version>
+   	<scope>system</scope>
+   	<systemPath>${project.basedir}/src/main/webapp/WEB-INF/postgresql-9.4.1212.jar</systemPath>
+   </dependency>
   </dependencies>
   
   <build>

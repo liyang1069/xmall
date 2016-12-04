@@ -3,7 +3,7 @@ package com.xmall.model;
 public class Category extends BaseModel {
 	private String name;
 	private String description;
-	private int classifyId;
+	private long classifyId;
 	
 	public String getName() {
 		return name;
@@ -17,10 +17,10 @@ public class Category extends BaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getClassifyId() {
+	public long getClassifyId() {
 		return classifyId;
 	}
-	public void setClassify_id(int classifyId) {
+	public void setClassify_id(long classifyId) {
 		this.classifyId = classifyId;
 	}
 }

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Commodity extends BaseModel {
 	private String name;
 	private String description;
-	private int classify_id;
+	private long classifyId;
 	private String size;
 	private BigDecimal price;
 	private float weight;
@@ -22,11 +22,11 @@ public class Commodity extends BaseModel {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getClassify_id() {
-		return classify_id;
+	public long getClassifyId() {
+		return classifyId;
 	}
-	public void setClassify_id(int classify_id) {
-		this.classify_id = classify_id;
+	public void setClassifyId(long classifyId) {
+		this.classifyId = classifyId;
 	}
 	public String getSize() {
 		return size;
